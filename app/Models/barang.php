@@ -10,7 +10,7 @@ class barang extends Model
     /** @use HasFactory<\Factories\BarangFactory> */
     use HasFactory;
 
-    protected $table = 'barang';
+    protected $table = 'barangs';
     protected $fillable = [
         'nama_barang',
         'kode_inventaris',
@@ -20,4 +20,14 @@ class barang extends Model
         'sumber_dana',
         'kondisi',
     ];
+    public function kategori()
+{
+    return $this->belongsTo(Kategori::class);
+}
+
+public function ruangan()
+{
+    return $this->belongsTo(Ruangan::class);
+}
+
 }

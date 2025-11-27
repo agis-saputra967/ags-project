@@ -17,4 +17,9 @@ class ruangan extends Model
         'luas',
         'no_sertifikat',
     ];
+    public function barang()
+{
+    return $this->hasMany(Barang::class);
+}
+
 }
