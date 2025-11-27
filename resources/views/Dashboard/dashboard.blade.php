@@ -1,91 +1,68 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Aset Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-100 via-white to-slate-200 min-h-screen p-8">
 
-@section('title', 'Dashboard Aset')
+    <div class="max-w-7xl mx-auto">
 
-@section('content')
+        <h1 class="text-5xl font-bold mb-10 text-slate-800 drop-shadow-sm">Dashboard Manajemen Aset</h1>
 
-<style>
-    .glass {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 18px;
-        padding: 22px;
-        transition: .3s;
-    }
-    .glass:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 35px rgba(0,0,0,0.15);
-    }
-    .stat-box {
-        padding: 18px;
-        border-radius: 14px;
-        background: #f8fafc;
-        text-align: center;
-        transition: .2s;
-    }
-    .stat-box:hover {
-        background: #e2e8f0;
-    }
-</style>
-
-<div class="container mx-auto mt-10">
-
-    <h1 class="text-3xl font-bold mb-8">Dashboard Sistem Informasi Manajemen Aset</h1>
-
-    <!-- Statistik Utama -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
-
-        <div class="stat-box shadow">
-            <h2 class="text-xl font-semibold">Barang</h2>
-            <p class="text-3xl font-bold">{{ $totalBarang }}</p>
-        </div>
-
-        <div class="stat-box shadow">
-            <h2 class="text-xl font-semibold">Kategori</h2>
-            <p class="text-3xl font-bold">{{ $totalKategori }}</p>
-        </div>
-
-        <div class="stat-box shadow">
-            <h2 class="text-xl font-semibold">Ruangan</h2>
-            <p class="text-3xl font-bold">{{ $totalRuangan }}</p>
-        </div>
-
-        <div class="stat-box shadow">
-            <h2 class="text-xl font-semibold">Bangunan</h2>
-            <p class="text-3xl font-bold">{{ $totalBangunan }}</p>
-        </div>
-
-        <div class="stat-box shadow">
-            <h2 class="text-xl font-semibold">Tanah</h2>
-            <p class="text-3xl font-bold">{{ $totalTanah }}</p>
-        </div>
-    </div>
-
-    <!-- Ringkasan Barang per Kategori -->
-    <div class="glass shadow mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Ringkasan Barang per Kategori</h2>
-
-        @foreach ($barangPerKategori as $kat)
-            <div class="flex justify-between border-b py-2">
-                <span>{{ $kat->nama_kategori }}</span>
-                <strong>{{ $kat->barang_count }} barang</strong>
+        <!-- Statistik Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
+                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Barang</span><span class="text-slate-400 text-3xl">📦</span></div>
+                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBarang }}</p>
             </div>
-        @endforeach
-    </div>
-
-    <!-- Ringkasan Barang per Ruangan -->
-    <div class="glass shadow mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Ringkasan Barang per Ruangan</h2>
-
-        @foreach ($barangPerRuangan as $r)
-            <div class="flex justify-between border-b py-2">
-                <span>{{ $r->nama_ruangan }}</span>
-                <strong>{{ $r->barang_count }} barang</strong>
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
+                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Kategori</span><span class="text-slate-400 text-3xl">🗂️</span></div>
+                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalKategori }}</p>
             </div>
-        @endforeach
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
+                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Ruangan</span><span class="text-slate-400 text-3xl">🏠</span></div>
+                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalRuangan }}</p>
+            </div>
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
+                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Bangunan</span><span class="text-slate-400 text-3xl">🏛️</span></div>
+                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBangunan }}</p>
+            </div>
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
+                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Tanah</span><span class="text-slate-400 text-3xl">🌱</span></div>
+                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalTanah }}</p>
+            </div>
+        </div>
+
+        <!-- Ringkasan Barang per Kategori -->
+        <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-slate-200 mb-10">
+            <h2 class="text-3xl font-semibold mb-5 text-slate-800">Ringkasan Barang per Kategori</h2>
+            @foreach ($barangPerKategori as $kat)
+                <div class="flex justify-between py-3 border-b border-slate-200 text-slate-700 hover:bg-slate-100 rounded-lg px-2 transition">
+                    <span>{{ $kat->nama_kategori }}</span>
+                    <strong>{{ $kat->barang_count }} barang</strong>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Ringkasan Barang per Ruangan -->
+        <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-slate-200 mb-10">
+            <h2 class="text-3xl font-semibold mb-5 text-slate-800">Ringkasan Barang per Ruangan</h2>
+            @foreach ($barangPerRuangan as $r)
+                <div class="flex justify-between py-3 border-b border-slate-200 text-slate-700 hover:bg-slate-100 rounded-lg px-2 transition">
+                    <span>{{ $r->nama_ruangan }}</span>
+                    <strong>{{ $r->barang_count }} barang</strong>
+                </div>
+            @endforeach
+        </div>
+
     </div>
 
-</div>
-
-@endsection
+</body>
+</html>
