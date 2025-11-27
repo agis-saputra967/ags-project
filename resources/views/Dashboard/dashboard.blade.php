@@ -18,27 +18,59 @@
 
         <!-- Statistik Card -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
-                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Barang</span><span class="text-slate-400 text-3xl">📦</span></div>
-                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBarang }}</p>
+
+    <a href="{{ route('barang.index') }}" class="block">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
+            <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-sm">Barang</span>
+                <span class="text-slate-400 text-3xl">📦</span>
             </div>
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
-                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Kategori</span><span class="text-slate-400 text-3xl">🗂️</span></div>
-                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalKategori }}</p>
-            </div>
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
-                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Ruangan</span><span class="text-slate-400 text-3xl">🏠</span></div>
-                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalRuangan }}</p>
-            </div>
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
-                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Bangunan</span><span class="text-slate-400 text-3xl">🏛️</span></div>
-                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBangunan }}</p>
-            </div>
-            <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200">
-                <div class="flex items-center justify-between"><span class="text-slate-500 text-sm">Tanah</span><span class="text-slate-400 text-3xl">🌱</span></div>
-                <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalTanah }}</p>
-            </div>
+            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBarang }}</p>
         </div>
+    </a>
+
+    <a href="{{ route('kategori.index') }}" class="block">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
+            <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-sm">Kategori</span>
+                <span class="text-slate-400 text-3xl">🗂️</span>
+            </div>
+            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalKategori }}</p>
+        </div>
+    </a>
+
+    <a href="{{ route('ruangan.index') }}" class="block">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
+            <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-sm">Ruangan</span>
+                <span class="text-slate-400 text-3xl">🏠</span>
+            </div>
+            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalRuangan }}</p>
+        </div>
+    </a>
+
+    <a href="{{ route('bangunan.index') }}" class="block">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
+            <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-sm">Bangunan</span>
+                <span class="text-slate-400 text-3xl">🏛️</span>
+            </div>
+            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBangunan }}</p>
+        </div>
+    </a>
+
+    <a href="{{ route('tanah.index') }}" class="block">
+        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
+            <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-sm">Tanah</span>
+                <span class="text-slate-400 text-3xl">🌱</span>
+            </div>
+            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalTanah }}</p>
+        </div>
+    </a>
+
+</div>
+
 
         <!-- Ringkasan Barang per Kategori -->
         <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-slate-200 mb-10">
