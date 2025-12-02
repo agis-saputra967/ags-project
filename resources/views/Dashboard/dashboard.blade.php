@@ -28,65 +28,31 @@
 </head>
 <body class="bg-gradient-to-br from-slate-100 to-slate-300 min-h-screen flex">
 
-    <div class="max-w-7xl mx-auto">
+    <!-- Sidebar Modern Glass -->
+    <aside class="w-72 glass shadow-xl p-7 fixed h-full rounded-r-3xl">
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-8 tracking-wide">🧭 Menu Aset</h2>
+        <nav class="space-y-4 text-slate-800 font-medium">
+            <a href="/dashboard" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">🏠 Dashboard</a>
+            <a href="{{ route('barang.index') }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">📦 Barang</a>
+            <a href="{{ route('kategori.index') }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">🗂️ Kategori</a>
+            <a href="{{ route('ruangan.index') }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">🏠 Ruangan</a>
+            <a href="{{ route('bangunan.index') }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">🏛️ Bangunan</a>
+            <a href="{{ route('tanah.index') }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/60 transition text-lg">🌱 Tanah</a>
+        </nav>
+    </aside>
 
-        <h1 class="text-5xl font-bold mb-10 text-slate-800 drop-shadow-sm">Dashboard Manajemen Aset</h1>
 
-        <!-- Statistik Card -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+    <!-- Content Modern -->
+    <main class="flex-1 ml-72 p-12">
 
-    <a href="{{ route('barang.index') }}" class="block">
-        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
-            <div class="flex items-center justify-between">
-                <span class="text-slate-500 text-sm">Barang</span>
-                <span class="text-slate-400 text-3xl">📦</span>
-            </div>
-            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBarang }}</p>
+        <!-- Header -->
+        <h1 class="text-5xl font-extrabold mb-10 text-slate-900 tracking-tight">Dashboard Aset</h1>
+
+        <!-- Grafik Modern Card -->
+        <div class="glass rounded-3xl p-10 shadow-xl mb-14">
+            <h2 class="text-3xl font-semibold mb-6 text-slate-900">📊 Grafik Statistik Aset</h2>
+            <canvas id="asetChart"></canvas>
         </div>
-    </a>
-
-    <a href="{{ route('kategori.index') }}" class="block">
-        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
-            <div class="flex items-center justify-between">
-                <span class="text-slate-500 text-sm">Kategori</span>
-                <span class="text-slate-400 text-3xl">🗂️</span>
-            </div>
-            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalKategori }}</p>
-        </div>
-    </a>
-
-    <a href="{{ route('ruangan.index') }}" class="block">
-        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
-            <div class="flex items-center justify-between">
-                <span class="text-slate-500 text-sm">Ruangan</span>
-                <span class="text-slate-400 text-3xl">🏠</span>
-            </div>
-            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalRuangan }}</p>
-        </div>
-    </a>
-
-    <a href="{{ route('bangunan.index') }}" class="block">
-        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
-            <div class="flex items-center justify-between">
-                <span class="text-slate-500 text-sm">Bangunan</span>
-                <span class="text-slate-400 text-3xl">🏛️</span>
-            </div>
-            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalBangunan }}</p>
-        </div>
-    </a>
-
-    <a href="{{ route('tanah.index') }}" class="block">
-        <div class="p-6 rounded-3xl bg-gradient-to-br from-white to-slate-50 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 border border-slate-200 cursor-pointer">
-            <div class="flex items-center justify-between">
-                <span class="text-slate-500 text-sm">Tanah</span>
-                <span class="text-slate-400 text-3xl">🌱</span>
-            </div>
-            <p class="text-5xl font-extrabold text-slate-900 mt-1">{{ $totalTanah }}</p>
-        </div>
-    </a>
-
-</div>
-
 
         <!-- Statistik Cards Modern -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
