@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tanah;
+use App\Models\Kategori;
 
 class TanahController extends Controller
 {
@@ -11,10 +13,11 @@ class TanahController extends Controller
      */
     public function index()
     {
-        return view('tanah', [
+        return view('Tanah.tanah', [
             'title' => 'Data Tanah',
-            'items' => Tanah::all(),
+            'tanah' => Tanah::all(),
             'kategori' => Kategori::all(),
+
         ]);
     }
 

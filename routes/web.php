@@ -3,6 +3,8 @@
 use App\Models\Ruangan;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TanahController;
+
 
 
 Route::get('/test', function () {

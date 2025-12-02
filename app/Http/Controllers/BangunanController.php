@@ -10,7 +10,7 @@ class BangunanController extends Controller
     public function index()
     {
         $bangunan = Bangunan::all();
-        return view('Bangunan.index', compact('bangunan'));
+        return view('Bangunan.bangunan', compact('bangunan'));
     }
 
     public function show($id)

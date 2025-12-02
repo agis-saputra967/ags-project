@@ -10,7 +10,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        return view('Kategori.index', compact('kategori'));
+        return view('Kategori.kategori', compact('kategori'));
     }
 
     public function show($id)
