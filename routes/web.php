@@ -1,21 +1,37 @@
 <?php
 
-use App\Models\Ruangan;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TanahController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\BangunanController;
 
-
-
+// Test
 Route::get('/test', function () {
-    return view ('home',['nama'=>'Agiss']);
+    return view('home', ['nama' => 'Agiss']);
 });
 
-// Dashboard route
+// Dashboard utama
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::resource('/barang', App\Http\Controllers\BarangController::class)->names('barang');
-Route::resource('/kategori', App\Http\Controllers\KategoriController::class)->names('kategori');
-Route::resource('/ruangan', App\Http\Controllers\RuanganController::class)->names('ruangan');
-Route::resource('/bangunan', App\Http\Controllers\BangunanController::class)->names('bangunan');
-Route::resource('/tanah', TanahController::class)->names('tanah');
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+// Logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Dashboard khusus admin
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('admin');
+
+// Resource
+Route::resource('/barang', BarangController::class);
+Route::resource('/kategori', KategoriController::class);
+Route::resource('/ruangan', RuanganController::class);
+Route::resource('/bangunan', BangunanController::class);
+Route::resource('/tanah', TanahController::class);
