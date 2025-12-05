@@ -11,7 +11,7 @@ class TanahController extends Controller
     public function index()
     {
         $tanah = Tanah::all();
-        return view('Tanah.index', compact('tanah'));
+        return view('Tanah.tanah', compact('tanah'));
     }
 
     // Form Tambah Tanah

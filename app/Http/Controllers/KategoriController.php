@@ -23,16 +23,8 @@ class KategoriController extends Controller
     // Proses Tambah Kategori
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_kategori' => 'required',
-            'kode_kategori' => 'required',
-            'keterangan' => 'nullable',
-        ]);
-
         Kategori::create($request->all());
-
-        return redirect()->route('kategori.index')
-            ->with('success', 'Kategori berhasil ditambahkan!');
+        return redirect()->route('kategori.index')->with('success', 'Kategori berhasil ditambahkan!');
     }
 
     // Form Edit
@@ -45,16 +37,9 @@ class KategoriController extends Controller
     // Proses Update
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_kategori' => 'required',
-            'kode_kategori' => 'required',
-            'keterangan' => 'nullable',
-        ]);
-
-        Kategori::findOrFail($id)->update($request->all());
-
-        return redirect()->route('kategori.index')
-            ->with('success', 'Kategori berhasil diperbarui!');
+        $kategori = Kategori::findOrFail($id);
+        $kategori->update($request->all());
+        return redirect()->route('kategori.index')->with('success', 'Kategori berhasil diupdate!');
     }
 
     // Hapus kategori
